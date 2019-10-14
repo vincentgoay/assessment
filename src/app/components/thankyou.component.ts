@@ -45,6 +45,12 @@ export class ThankyouComponent implements OnInit {
         description: data[key]
       }
 
+      if (key == 'createdDate') {
+        tableData.item = "Created Date"
+      }
+
+      tableData.item = tableData.item.toUpperCase();
+      
       newDatasource.push(tableData);
     }
     return newDatasource;

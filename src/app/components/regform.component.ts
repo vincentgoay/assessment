@@ -16,7 +16,6 @@ export class RegformComponent implements OnInit {
   // MARK: Properties
   //--------------------------------
   today: Date;
-
   countryCollection: Country[];
 
   formGroup: FormGroup;

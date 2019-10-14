@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form class="form-container" [formGroup]="formGroup">
     <div class="form-field-container">
         <mat-form-field>
             <mat-label color="primary">Email</mat-label>
@@ -37,7 +37,7 @@
         </mat-form-field>
     </div>
 
-    <div class="form-field-container" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+    <div class="form-field-container" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
         <label>Gender:</label>
         <mat-radio-group fxLayout="row" fxLayoutGap="20px" name="gender" formControlName="gender">
             <mat-radio-button value="male">Male</mat-radio-button>
@@ -47,11 +47,12 @@
 
     <div class="form-field-container">
         <mat-form-field>
-            <input matInput formControlName="dob" [max]="today" [matDatepicker]="datepicker"
+            <input matInput formControlName="dob"  [matDatepicker]="datepicker"
                 placeholder="Date of birth">
             <mat-datepicker-toggle matSuffix [for]="datepicker">
             </mat-datepicker-toggle>
             <mat-datepicker #datepicker></mat-datepicker>
+            <mat-hint align="end">* Mandatory field.</mat-hint>
             <mat-error *ngIf="isUnderAge() && (dob.dirty || dob.touched)">You must be at least 18 years old.</mat-error>
         </mat-form-field>
     </div>
@@ -91,8 +92,11 @@
         </mat-form-field>
     </div>
 
-    <div class="form-field-container">
-        <button mat-raise-button type="reset">Reset</button>
-        <button mat-raise-button (click)="formSubmitted()" [disabled]="formGroup.invalid || isUnderAge()">Submit</button>
+    <mat-divider></mat-divider>
+    <br>
+
+    <div class="form-field-control" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="32px">
+        <button mat-raised-button color="basic" type="reset">Reset</button>
+        <button mat-raised-button color="primary" (click)="formSubmitted()" [disabled]="formGroup.invalid || isUnderAge()">Submit</button>
     </div>
 </form>

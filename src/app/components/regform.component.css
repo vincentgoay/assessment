@@ -1,4 +1,30 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 16px;
+}
+
 .form-field-container {
     display: flex;
     flex-direction: row;
+}
+
+.form-field-container mat-form-field {
+    width: 100%;
+}
+
+.form-field-container mat-radio-group {
+    padding: 16px 0;
+}
+
+.form-field-control {
+    padding: 20px;
+}
+
+.form-field-control button {
+    padding: 16px 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1em;
 }
