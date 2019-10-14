@@ -1,6 +1,9 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
 
-const MODULE = [];
+const MODULE = [
+    MatToolbarModule, MatIconModule, MatButtonModule
+];
 
 @NgModule({
     imports: MODULE,
