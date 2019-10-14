@@ -9,7 +9,7 @@ import { RSVP } from '../models/rsvp';
 })
 export class FormService {
 
-  rsvpCollection: RSVP[];
+  rsvpCollection: RSVP[] = [];
   
   //--------------------------------
   // MARK: Initialization

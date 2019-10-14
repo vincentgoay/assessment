@@ -45,9 +45,9 @@ export class RegformComponent implements OnInit {
 
   public formSubmitted() {
     console.log('Form submitted...');
-    console.log(this.formGroup.value.email);
+    console.log(this.formGroup.value);
     const fg = this.formGroup;
-    const id = (this.formSvc.rsvpCollection.length | 0) + 1;
+    const id = this.formSvc.rsvpCollection.length + 1;
 
     const newRsvp = new RSVP(
       id, 
