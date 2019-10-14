@@ -21,3 +21,11 @@
     font-size: 1em;
 }
 
+.mat-row {
+    padding: 16px 0;
+}
+  
+.mat-cell {
+    padding: 8px 8px 8px 0;
+}
+

@@ -16,14 +16,18 @@
             <mat-label color="primary">Password</mat-label>
             <input type="password" matInput formControlName="password" placeholder="Enter your password">
             <mat-hint align="end">* Mandatory field.</mat-hint>
-            <mat-error *ngIf="hasError('password', 'required') && (password.dirty || password.touched)">A valid password
+            <mat-error *ngIf="hasError('password', 'required') &&
+                                (password.dirty || password.touched)">A valid password
                 is required!</mat-error>
-            <mat-error *ngIf="hasError('password', 'pattern') && (password.dirty || password.touched)">Password required
+            <mat-error *ngIf="hasError('password', 'minlength') && 
+                                (password.dirty || password.touched)">Minimum 8 characters
+            </mat-error>
+            <mat-error *ngIf="!hasError('password', 'minlength') && 
+                                hasError('password', 'pattern') && 
+                                (password.dirty || password.touched)">Password required
                 at least one uppercase, one lowercase, one numeric digit and one of the special character (@,#,$)
             </mat-error>
-            <mat-error *ngIf="hasError('password', 'minlength') && (password.dirty || password.touched)">Minimum 8
-                characters
-            </mat-error>
+
         </mat-form-field>
     </div>
 
@@ -32,7 +36,8 @@
             <mat-label color="primary">Name</mat-label>
             <input type="text" matInput formControlName="name" placeholder="Enter your name">
             <mat-hint align="end">* Mandatory field.</mat-hint>
-            <mat-error *ngIf="hasError('name', 'required') && (name.dirty || name.touched)">Name
+            <mat-error *ngIf="hasError('name', 'required') && 
+                                (name.dirty || name.touched)">Name
                 is required!</mat-error>
         </mat-form-field>
     </div>
@@ -47,8 +52,7 @@
 
     <div class="form-field-container">
         <mat-form-field>
-            <input matInput formControlName="dob"  [matDatepicker]="datepicker"
-                placeholder="Date of birth">
+            <input matInput formControlName="dob" [matDatepicker]="datepicker" placeholder="Date of birth">
             <mat-datepicker-toggle matSuffix [for]="datepicker">
             </mat-datepicker-toggle>
             <mat-datepicker #datepicker></mat-datepicker>
@@ -85,18 +89,21 @@
             <mat-label color="primary">Contact No</mat-label>
             <input type="text" matInput formControlName="contact" placeholder="Enter your mobile number">
             <mat-hint align="end">* Mandatory field.</mat-hint>
-            <mat-error *ngIf="hasError('contact', 'required') && (contact.dirty || contact.touched)">Contact is required!
-                </mat-error>
+            <mat-error *ngIf="hasError('contact', 'required') && (contact.dirty || contact.touched)">Contact is
+                required!
+            </mat-error>
             <mat-error *ngIf="hasError('contact', 'pattern') && (contact.dirty || contact.touched)">Invalid contact!
             </mat-error>
         </mat-form-field>
     </div>
 
+    <br>
     <mat-divider></mat-divider>
     <br>
 
     <div class="form-field-control" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="32px">
         <button mat-raised-button color="basic" type="reset">Reset</button>
-        <button mat-raised-button color="primary" (click)="formSubmitted()" [disabled]="formGroup.invalid || isUnderAge()">Submit</button>
+        <button mat-raised-button color="primary" (click)="formSubmitted()"
+            [disabled]="formGroup.invalid || isUnderAge()">Submit</button>
     </div>
 </form>

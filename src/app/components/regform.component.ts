@@ -111,7 +111,9 @@ export class RegformComponent implements OnInit {
       dob: this.formBuilder.control('', [Validators.required]),
       address: this.formBuilder.control('', [Validators.required]),
       country: this.formBuilder.control('', [Validators.required]),
-      contact: this.formBuilder.control('', [Validators.required, Validators.pattern(new RegExp('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s0-9]*$'))])  //^([0-9])([\+]?)([-]?)([\s]?)([\(]?)([\)]?)'
+      contact: this.formBuilder.control('', [
+        Validators.required,
+        Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s0-9]*$')])  //^([0-9])([\+]?)([-]?)([\s]?)([\(]?)([\)]?)'
     });
   }
 }
