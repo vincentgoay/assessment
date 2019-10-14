@@ -1,0 +1,84 @@
+{
+  "configVersion": 1,
+  "timestamp": 1571044070217,
+  "index": "https://vincentgoay.github.io/assessment/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://vincentgoay.github.io/assessment/favicon.ico",
+        "https://vincentgoay.github.io/assessment/index.html",
+        "https://vincentgoay.github.io/assessment/main-es2015.f3d13177a197e4908383.js",
+        "https://vincentgoay.github.io/assessment/main-es5.f3d13177a197e4908383.js",
+        "https://vincentgoay.github.io/assessment/manifest.webmanifest",
+        "https://vincentgoay.github.io/assessment/polyfills-es2015.0ef207fb7b4761464817.js",
+        "https://vincentgoay.github.io/assessment/polyfills-es5.931f63c2feef40f602a6.js",
+        "https://vincentgoay.github.io/assessment/runtime-es2015.e8a2810b3b08d6a1b6aa.js",
+        "https://vincentgoay.github.io/assessment/runtime-es5.e8a2810b3b08d6a1b6aa.js",
+        "https://vincentgoay.github.io/assessment/styles.572bfd8274f32280e0a3.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://vincentgoay.github.io/assessment/assets/bg01.jpeg",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-128x128.png",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-144x144.png",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-152x152.png",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-192x192.png",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-384x384.png",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-512x512.png",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-72x72.png",
+        "https://vincentgoay.github.io/assessment/assets/icons/icon-96x96.png",
+        "https://vincentgoay.github.io/assessment/assets/logo.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://vincentgoay.github.io/assessment/assets/bg01.jpeg": "c5b8bff60f2ca75e94861c29fc712ffb65975eec",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-128x128.png": "1641bcf10e646bacecb17471f7420855d33b878b",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-144x144.png": "4b9086c2d675efe926e7f011bc03b7eded238426",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-152x152.png": "fe455e3935cb454421cd92a7fb0999ffa8fe2453",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-192x192.png": "ff549e7efdfaafd89a5f15327f1d98b02200d4eb",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-384x384.png": "d561294f898d566249084a10c954df91842a8dbd",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-512x512.png": "504ebc876f636434816fe1bedd3ee3b912b83836",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-72x72.png": "97c0fbb291566f0a3aeb1fbd0b2c61cb2afd9580",
+    "https://vincentgoay.github.io/assessment/assets/icons/icon-96x96.png": "9f5cf4c2c6598e79989eb755e10adfe54e0c960e",
+    "https://vincentgoay.github.io/assessment/assets/logo.png": "f5d63fcedc103060cfe737d5c287aac19ae52456",
+    "https://vincentgoay.github.io/assessment/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://vincentgoay.github.io/assessment/index.html": "91de3f1f52cefcd1e26c489288f9a54b3e6a76fd",
+    "https://vincentgoay.github.io/assessment/main-es2015.f3d13177a197e4908383.js": "5a9584d0d0335f383726620b293d8b6d1e61686f",
+    "https://vincentgoay.github.io/assessment/main-es5.f3d13177a197e4908383.js": "85f02830b52d0835650d9db07c2f38fb27b7d865",
+    "https://vincentgoay.github.io/assessment/manifest.webmanifest": "7374f4592c9ac53ff594d088604e0a7fe00af612",
+    "https://vincentgoay.github.io/assessment/polyfills-es2015.0ef207fb7b4761464817.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
+    "https://vincentgoay.github.io/assessment/polyfills-es5.931f63c2feef40f602a6.js": "45c51483238468881240579c3fdecd19144cff17",
+    "https://vincentgoay.github.io/assessment/runtime-es2015.e8a2810b3b08d6a1b6aa.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://vincentgoay.github.io/assessment/runtime-es5.e8a2810b3b08d6a1b6aa.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://vincentgoay.github.io/assessment/styles.572bfd8274f32280e0a3.css": "b9bb1d9aad6b5d82bf8f42fa04a08252440dd11a"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
