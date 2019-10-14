@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Country } from '../models/country';
 import { FormService } from '../services/form.service';
 import { Router } from '@angular/router';
+import { RSVP } from '../models/rsvp';
 
 @Component({
   selector: 'app-regform',
@@ -44,9 +45,26 @@ export class RegformComponent implements OnInit {
 
   public formSubmitted() {
     console.log('Form submitted...');
-    
+    console.log(this.formGroup.value.email);
+    const fg = this.formGroup;
+    const id = (this.formSvc.rsvpCollection.length | 0) + 1;
+
+    const newRsvp = new RSVP(
+      id, 
+      new Date(), 
+      fg.value.email,
+      fg.value.password,
+      fg.value.name,
+      fg.value.gender,
+      fg.value.dob.toDate(),
+      fg.value.address,
+      fg.value.country,
+      fg.value.contact);
+
+    const index = this.formSvc.saveForm(newRsvp);
+
     this.formGroup.reset();
-    this.router.navigate(['/confirm', 0]);
+    this.router.navigate(['/confirm', index]);
   }
 
   //--------------------------------
