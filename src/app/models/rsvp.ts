@@ -1,5 +1,3 @@
-import { Country } from './country';
-
 export class RSVP {
     constructor(
         public id: number,
@@ -10,7 +8,7 @@ export class RSVP {
         public gender: string,
         public dob: Date,
         public address: string,
-        public country: Country,
+        public country: string,
         public contact: string
     ){
     }

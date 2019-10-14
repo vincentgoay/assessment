@@ -4,6 +4,7 @@ import { Country } from '../models/country';
 import { FormService } from '../services/form.service';
 import { Router } from '@angular/router';
 import { RSVP } from '../models/rsvp';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-regform',
@@ -19,6 +20,13 @@ export class RegformComponent implements OnInit {
   countryCollection: Country[];
 
   formGroup: FormGroup;
+
+  get email() { return this.formGroup.get('email'); }
+  get password() { return this.formGroup.get('password'); }
+  get name() { return this.formGroup.get('name'); }
+  get dob() { return this.formGroup.get('dob'); }
+  get address() { return this.formGroup.get('address'); }
+  get contact() { return this.formGroup.get('contact'); }
 
   //--------------------------------
   // MARK: Initialization
@@ -50,8 +58,8 @@ export class RegformComponent implements OnInit {
     const id = this.formSvc.rsvpCollection.length + 1;
 
     const newRsvp = new RSVP(
-      id, 
-      new Date(), 
+      id,
+      new Date(),
       fg.value.email,
       fg.value.password,
       fg.value.name,
@@ -61,10 +69,20 @@ export class RegformComponent implements OnInit {
       fg.value.country,
       fg.value.contact);
 
-    const index = this.formSvc.saveForm(newRsvp) - 1; 
+    const index = this.formSvc.saveForm(newRsvp) - 1;
 
     this.formGroup.reset();
     this.router.navigate(['/confirm', index]);
+  }
+
+  public isUnderAge(): boolean {
+    if (this.dob.value) {
+      const now = new Date();
+      const birthDate = this.formGroup.value.dob.toDate();
+      const age = moment().diff(birthDate, "years", false);
+      return !(age >= 18);
+    }
+    return true;  // Under age by default
   }
 
   //--------------------------------
@@ -85,13 +103,16 @@ export class RegformComponent implements OnInit {
   private initFormGroup(): FormGroup {
     return this.formGroup = this.formBuilder.group({
       email: this.formBuilder.control('', [Validators.email, Validators.required]),
-      password: this.formBuilder.control('', [Validators.required]),
+      password: this.formBuilder.control('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#\$])(?=.{8,})'))]),
       name: this.formBuilder.control('', [Validators.required]),
       gender: this.formBuilder.control('male', [Validators.required]),
       dob: this.formBuilder.control('', [Validators.required]),
       address: this.formBuilder.control('', [Validators.required]),
       country: this.formBuilder.control('', [Validators.required]),
-      contact: this.formBuilder.control('', [Validators.required]),
+      contact: this.formBuilder.control('', [Validators.required, Validators.pattern(new RegExp('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s0-9]*$'))])  //^([0-9])([\+]?)([-]?)([\s]?)([\(]?)([\)]?)'
     });
   }
 }
