@@ -10,21 +10,50 @@ import { RSVP } from '../models/rsvp';
 })
 export class ThankyouComponent implements OnInit {
 
-  private submitedForm: RSVP;
+  displayedColumns: string[] = ['item', 'description'];
+  dataSource: TableDataStruct[];
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private formSvc: FormService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
     // Retrieve rsvp form from a list of saved rsvp form in the collection
     const index = this.activatedRoute.snapshot.params.idx;
     this.submitedForm = this.formSvc.rsvpCollection[index];
+
+    console.log('Index: ', index);
+    console.log('Submitted Form: ', this.submitedForm);
+
+    this.dataSource = this.generateDatasource(this.submitedForm);
+    console.log('Datasource: ', this.dataSource);
   }
 
   dismiss() {
     this.router.navigate(['/']);
   }
+
+  private generateDatasource(data: RSVP): TableDataStruct[] {
+    let newDatasource = [];
+    for (let key in data) {
+      const tableData: TableDataStruct = {
+        item: key,
+        description: data[key]
+      }
+
+      newDatasource.push(tableData);
+    }
+    return newDatasource;
+  }
+
+  private submitedForm: RSVP;
+}
+
+export interface TableDataStruct {
+  item: string,
+  description: string
 }

@@ -28,6 +28,8 @@ export class FormService {
   // MARK: Save new form into collection and return index
   //--------------------------------
   saveForm(rsvp: RSVP): number {
-    return this.rsvpCollection.push(rsvp);
+    const index = this.rsvpCollection.push(rsvp);
+    console.log('Collection: ', this.rsvpCollection);
+    return index;
   }
 }

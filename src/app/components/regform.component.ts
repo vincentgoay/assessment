@@ -61,7 +61,7 @@ export class RegformComponent implements OnInit {
       fg.value.country,
       fg.value.contact);
 
-    const index = this.formSvc.saveForm(newRsvp);
+    const index = this.formSvc.saveForm(newRsvp) - 1; 
 
     this.formGroup.reset();
     this.router.navigate(['/confirm', index]);
