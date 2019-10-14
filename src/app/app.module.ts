@@ -10,13 +10,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormService } from './services/form.service';
+import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RegformComponent } from './components/regform.component';
+import { ThankyouComponent } from './components/thankyou.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegformComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,
@@ -25,8 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule, ReactiveFormsModule,
-    MaterialModule, FlexLayoutModule
-
+    MaterialModule, FlexLayoutModule,
+    MatMomentDateModule
   ],
   providers: [FormService],
   bootstrap: [AppComponent]

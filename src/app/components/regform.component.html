@@ -1,0 +1,73 @@
+<form [formGroup]="formGroup">
+    <div class="form-field-container">
+        <mat-form-field>
+            <mat-label color="primary">Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Enter your email">
+        </mat-form-field>
+
+    </div>
+
+    <div class="form-field-container">
+        <mat-form-field>
+            <mat-label color="primary">Password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="Enter your password">
+        </mat-form-field>
+    </div>
+
+    <div class="form-field-container">
+        <mat-form-field>
+            <mat-label color="primary">Name</mat-label>
+            <input type="text" matInput formControlName="name" placeholder="Enter your name">
+        </mat-form-field>
+    </div>
+
+    <div class="form-field-container" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+        <label>Gender:</label>
+        <mat-radio-group fxLayout="row" fxLayoutGap="20px" name="gender" formControlName="gender">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div class="form-field-container">
+        <mat-form-field>
+            <input matInput formControlName="dob" [max]="today" [matDatepicker]="datepicker"
+                placeholder="Date of birth">
+            <mat-datepicker-toggle matSuffix [for]="datepicker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+            <!-- <mat-hint *ngIf="isUnderAge() && (dob.dirty || dob.touched)">You need to be 21 years of age to trade.
+            </mat-hint> -->
+        </mat-form-field>
+    </div>
+
+    <div class="form-field-container">
+        <mat-form-field>
+            <mat-label color="primary">Address</mat-label>
+            <input type="text" matInput formControlName="address" placeholder="Where do you live?">
+        </mat-form-field>
+    </div>
+
+    <div class="form-field-container">
+        <mat-form-field>
+            <mat-label>Country</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let country of countryCollection; let idx = index" [value]="countryCollection[idx]">
+                    {{ country.code + ' - ' + country.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-field-container">
+        <mat-form-field>
+            <mat-label color="primary">Contact No</mat-label>
+            <input type="text" matInput formControlName="contact" placeholder="Enter your mobile number">
+        </mat-form-field>
+    </div>
+
+    <div class="form-field-container">
+        <button mat-raise-button type="reset">Reset</button>
+        <button mat-raise-button (click)="formSubmitted()" [disabled]="!formGroup.invalid">Submit</button>
+    </div>
+</form>
