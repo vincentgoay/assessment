@@ -13,6 +13,9 @@ export class ThankyouComponent implements OnInit {
   displayedColumns: string[] = ['item', 'description'];
   dataSource: TableDataStruct[];
 
+  //--------------------------------
+  // MARK: Initialization
+  //--------------------------------
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -33,10 +36,16 @@ export class ThankyouComponent implements OnInit {
     console.log('Datasource: ', this.dataSource);
   }
 
+  //--------------------------------
+  // MARK: Public Methods
+  //--------------------------------
   dismiss() {
     this.router.navigate(['/']);
   }
 
+  //--------------------------------
+  // MARK: Private Methods
+  //--------------------------------
   private generateDatasource(data: RSVP): TableDataStruct[] {
     let newDatasource = [];
     for (let key in data) {
@@ -50,7 +59,7 @@ export class ThankyouComponent implements OnInit {
       }
 
       tableData.item = tableData.item.toUpperCase();
-      
+
       newDatasource.push(tableData);
     }
     return newDatasource;
@@ -59,6 +68,9 @@ export class ThankyouComponent implements OnInit {
   private submitedForm: RSVP;
 }
 
+//--------------------------------
+// MARK: Table Data Struct
+//--------------------------------
 export interface TableDataStruct {
   item: string,
   description: string
